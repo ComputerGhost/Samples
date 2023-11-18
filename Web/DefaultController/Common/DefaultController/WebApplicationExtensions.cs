@@ -1,4 +1,4 @@
-﻿namespace DefaultController.Common.DefaultController.Extensions;
+﻿namespace DefaultController.Common.DefaultController;
 
 public static class WebApplicationExtensions
 {

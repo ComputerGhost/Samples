@@ -1,4 +1,4 @@
-using DefaultController.Common.DefaultController.Extensions;
+using DefaultController.Common.DefaultController;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
