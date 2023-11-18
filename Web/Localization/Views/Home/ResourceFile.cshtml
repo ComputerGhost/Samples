@@ -1,0 +1,8 @@
+﻿@using Localization.Views.Home;
+@inject IStringLocalizer<ResourceFileModel> localizer;
+@inject IHtmlLocalizer<ResourceFileModel> htmlLocalizer;
+@model ResourceFileModel;
+
+<h1>@localizer["headerText"]</h1>
+
+@htmlLocalizer["content"]

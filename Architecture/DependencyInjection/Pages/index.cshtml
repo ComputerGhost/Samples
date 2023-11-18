@@ -1,0 +1,10 @@
+﻿@page
+@model DependencyInjection.Pages.IndexModel
+
+<h5>Loaded from ServiceImplementationAttribute:</h5>
+<ul>
+    @foreach (var iname in Model.Interfaces)
+    {
+        <li>@iname</li>
+    }
+</ul>
