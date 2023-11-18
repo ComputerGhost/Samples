@@ -1,10 +1,11 @@
-# Web-Samples
+# Samples
 
 The contained projects are all for reference and experimentation.
 
 It is not recommended to use the contained code as-is for production code.  It can often be simplified per use case.
 
 ## Subfolders
+
 
  * Architecture - Ways of structuring code to build a project.
  * Algorithms - Number crunching
