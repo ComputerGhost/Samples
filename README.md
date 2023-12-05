@@ -12,16 +12,3 @@ If anything herein needs to evolve to something stable, I'll pull it out into it
 In the contains projects it is common to see a "Common" folder.
 I use a "Common" folder to store modules that can be copy-pasted to other projects then used with minimal extra coding.
 
-
-## Todo
-
-AutoDependencyInjection
-
-Websites/Architecture/ModelViewController
-Websites/Architecture/ModelViewPresenter
-Websites/Architecture/ModelViewViewModel
-Websites/React/RichTextEditor
-
-Algorithms/ArithmeticEncoding
-Algorithms/HuffmanCoding
-
