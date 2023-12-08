@@ -1,0 +1,11 @@
+.contentContainer {
+    position: relative;
+}
+
+.placeholder {
+    position: absolute;
+    top: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
