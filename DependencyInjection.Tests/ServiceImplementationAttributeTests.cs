@@ -19,7 +19,7 @@ public class ServiceImplementationAttributeTests
         var implementation = typeof(OneInterface);
 
         // act
-        var @interface = attribute.GetInterface(implementation);
+        var @interface = attribute.GetServiceType(implementation);
 
         // assert
         Assert.AreEqual(@interface, typeof(Interface1));
@@ -33,7 +33,7 @@ public class ServiceImplementationAttributeTests
         var implementation = typeof(TwoInterfaces);
 
         // act
-        var getInterface = () => attribute.GetInterface(implementation);
+        var getInterface = () => attribute.GetServiceType(implementation);
 
         // assert
         Assert.ThrowsException<ArgumentException>(getInterface);
@@ -43,11 +43,11 @@ public class ServiceImplementationAttributeTests
     public void WhenInterfaceSpecified_AndOneInterface_UsesSpecifiedInterface()
     {
         // arrange
-        var attribute = new ServiceImplementationAttribute { Interface = typeof(Interface1) };
+        var attribute = new ServiceImplementationAttribute { ServiceType = typeof(Interface1) };
         var implementation = typeof(OneInterface);
 
         // act
-        var @interface = attribute.GetInterface(implementation);
+        var @interface = attribute.GetServiceType(implementation);
 
         // assert
         Assert.AreEqual(@interface, typeof(Interface1));
@@ -57,11 +57,11 @@ public class ServiceImplementationAttributeTests
     public void WhenInterfaceSpecified_AndTwoInterfaces_UsesSpecifiedInterface()
     {
         // arrange
-        var attribute = new ServiceImplementationAttribute { Interface = typeof(Interface1) };
+        var attribute = new ServiceImplementationAttribute { ServiceType = typeof(Interface1) };
         var implementation = typeof(TwoInterfaces);
 
         // act
-        var @interface = attribute.GetInterface(implementation);
+        var @interface = attribute.GetServiceType(implementation);
 
         // assert
         Assert.AreEqual(@interface, typeof(Interface1));

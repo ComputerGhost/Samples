@@ -10,16 +10,14 @@ public static class ServiceCollectionExtensions
         return services.AddServiceImplementations(assembly);
     }
 
-    private static IServiceCollection AddServiceImplementations(this IServiceCollection services, Assembly assembly)
+    public static IServiceCollection AddServiceImplementations(this IServiceCollection services, Assembly assembly)
     {
-        foreach (var type in assembly.GetTypes())
+        foreach (var implementationType in assembly.GetTypes())
         {
-            foreach (var attribute in type.GetCustomAttributes<ServiceImplementationAttribute>())
+            foreach (var attribute in implementationType.GetCustomAttributes<ServiceImplementationAttribute>())
             {
-                services.Add(new ServiceDescriptor(
-                    attribute.GetInterface(type),
-                    type,
-                    attribute.Lifetime));
+                var serviceType = attribute.GetServiceType(implementationType);
+                services.Add(new ServiceDescriptor(serviceType, implementationType, attribute.Lifetime));
             }
         }
 

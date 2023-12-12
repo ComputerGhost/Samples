@@ -3,7 +3,7 @@ using DependencyInjection.Services.Interfaces;
 
 namespace DependencyInjection.Services;
 
-[ServiceImplementation(Interface = typeof(ISpecifiedInterface))]
+[ServiceImplementation(ServiceType = typeof(ISpecifiedInterface))]
 public class SpecifiedInterface : ISpecifiedInterface, IUnusedInterface
 {
     public void DoNothing()
