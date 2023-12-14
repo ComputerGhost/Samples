@@ -4,7 +4,13 @@ import { CAN_REDO_COMMAND, CAN_UNDO_COMMAND, COMMAND_PRIORITY_LOW, REDO_COMMAND,
 import { useEffect, useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 
-export default function HistoryToolbarPlugin() {
+interface Props {
+    buttonVariant?: string,
+};
+
+export default function HistoryToolbarPlugin({
+    buttonVariant = "primary",
+}: Props) {
     const [editor] = useLexicalComposerContext();
     const [canUndo, setCanUndo] = useState(false);
     const [canRedo, setCanRedo] = useState(false);
@@ -36,6 +42,7 @@ export default function HistoryToolbarPlugin() {
                 aria-label="Undo"
                 disabled={!canUndo}
                 onClick={() => editor.dispatchCommand(UNDO_COMMAND, undefined)}
+                variant={buttonVariant}
             >
                 <i className='fa-solid fa-fw fa-rotate-left'></i>
             </Button>
@@ -43,6 +50,7 @@ export default function HistoryToolbarPlugin() {
                 aria-label="Redo"
                 disabled={!canRedo}
                 onClick={() => editor.dispatchCommand(REDO_COMMAND, undefined)}
+                variant={buttonVariant}
             >
                 <i className='fa-solid fa-fw fa-rotate-right'></i>
             </Button>
