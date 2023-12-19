@@ -13,13 +13,19 @@ import FloatingToolbarPlugin from "./plugins/FloatingToolbarPlugin";
 import BlockTypeToolbarPlugin from "./plugins/BlockTypeToolbarPlugin";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
+import { LexicalEditor } from "lexical";
+import ExportPlugin, { ExportFunc, ImportFunc } from "./plugins/ExportPlugin";
 
 interface Props {
     placeholder?: string,
+    doExport?: ExportFunc,
+    doImport?: ImportFunc,
 }
 
 export default function TextEditor({
     placeholder,
+    doExport,
+    doImport,
 }: Props) {
     const [floatingAnchor, setFloatingAnchor] = useState<HTMLDivElement | null>(null);
 
@@ -58,6 +64,7 @@ export default function TextEditor({
             {/*</FloatingToolbarPlugin>*/}
             <HistoryPlugin />
             <ListPlugin />
+            <ExportPlugin doExport={doExport} doImport={doImport} />
         </LexicalComposer>
     );
 }
